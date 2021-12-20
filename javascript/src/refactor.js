@@ -326,13 +326,17 @@ class RefactorEngine {
                         const nodeArgument = node.arguments[argumentIndex];
 
                         let nodeArgumentIsFlag = false;
-                        switch (nodeArgument.type) {
-                            case 'Identifier':
-                                nodeArgumentIsFlag = nodeArgument.name === engine.flagname;
-                                break;
-                            case 'Literal':
-                                nodeArgumentIsFlag = nodeArgument.value === engine.flagname;
-                                break;
+                        if(!engine.flagname) {
+                            nodeArgumentIsFlag = true;
+                        } else {
+                            switch (nodeArgument && nodeArgument.type) {
+                                case 'Identifier':
+                                    nodeArgumentIsFlag = nodeArgument.name === engine.flagname;
+                                    break;
+                                case 'Literal':
+                                    nodeArgumentIsFlag = nodeArgument.value === engine.flagname;
+                                    break;
+                            }
                         }
                         if (nodeArgumentIsFlag) {
                             const flagType = methodHashMap.get(node.callee.name).flagType;

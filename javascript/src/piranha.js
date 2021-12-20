@@ -38,7 +38,7 @@ requiredArgs.addArgument(['-s', '--source'], {
 
 requiredArgs.addArgument(['-f', '--flag'], {
     help: 'Name of the stale flag',
-    required: true,
+    required: false,
 });
 
 requiredArgs.addArgument(['-p', '--properties'], {
