@@ -440,6 +440,7 @@ class RefactorEngine {
                     parent.body.splice(nodeIndex, 1, ...node.body);
                 }
             },
+            fallback: 'iteration',
         });
     }
 
@@ -662,6 +663,7 @@ class RefactorEngine {
                     delete node.createdByPiranha;
                 }
             },
+            fallback: 'iteration',
         });
     }
 
