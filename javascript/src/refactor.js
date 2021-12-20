@@ -408,6 +408,9 @@ class RefactorEngine {
 
         estraverse.replace(this.ast, {
             leave: function (node) {
+                if(node.type === 'JSXExpressionContainer' && engine.isPiranhaLiteral(node.expression)) {
+                    this.remove()
+                }
                 if (
                     (node.type === 'IfStatement' || node.type === 'ConditionalExpression') &&
                     engine.isPiranhaLiteral(node.test)
