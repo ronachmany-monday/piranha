@@ -110,7 +110,9 @@ if (args.debug != null) {
 
 const keep_comments = args.keep_comments != null;
 
-const ast = recast.parse(fs.readFileSync(filename, 'utf-8')).program;
+const ast = recast.parse(fs.readFileSync(filename, 'utf-8'), {
+    parser: require("recast/parsers/babel")
+}).program;
 
 const engine = new refactor.RefactorEngine(
     ast,
