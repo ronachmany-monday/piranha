@@ -30,9 +30,10 @@ const fs = require('fs');
 
 module.exports = {
     checkSource: function (source_file) {
+        const fileExtension = source_file.split('.').slice(-1)[0]
         if (!fs.existsSync(source_file)) {
             throw new Error(`File ${source_file} not found`);
-        } else if (source_file.split('.').slice(-1)[0] != 'js') {
+        } else if (fileExtension !== 'js' && fileExtension !== 'jsx') {
             throw new Error(`Input ${source_file} is not a javascript file`);
         }
 
