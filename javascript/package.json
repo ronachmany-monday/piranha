@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "Stale flag removal for JavaScript code",
     "main": "src/refactor.js",
-    "bin": "piranha.js",
+    "bin": "src/piranha.js",
     "pkg": {
         "assets": "config/properties.json"
     },
